@@ -1,0 +1,42 @@
+@import "./variable";
+@import "./config";
+@import "./general";
+@import "./nav";
+@import "./main";
+@import "./footer";
+
+@media screen and (max-width: 850px) {
+  .right {
+    span {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container,
+  .nav {
+    margin: 10px 50px;
+  }
+
+  .col {
+    flex-direction: column;
+  }
+
+  .banner {
+    flex-direction: column;
+    width: 400px;
+  }
+
+  .footer-container {
+    .left {
+      display: none !important;
+    }
+
+    .right {
+      width: 100%;
+      justify-content: space-between !important;
+      column-gap: 0;
+    }
+  }
+}

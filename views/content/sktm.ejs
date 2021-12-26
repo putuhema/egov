@@ -1,0 +1,76 @@
+<div class="input-container">
+  <div class="back-home">
+    <a href="/"><i class="bx bx-left-arrow-alt"></i> Kembali</a>
+  </div>
+  <div class="row">
+    <div class="title">Form Surat Keterangan Tidak Mampu</div>
+  </div>
+  <form action="<%= action %>">
+    <div class="col">
+      <div class="row">
+        <label for="nik">NIK</label>
+        <input type="text" name="nik" id="nik" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <label for="name">Nama</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="row">
+        <label for="plate">Jenis Kelamin</label>
+        <select name="gender" id="gender">
+          <option value="0">Laki - Laki</option>
+          <option value="1">Perempuan</option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <label for="length">Tempat</label>
+        <input type="text" name="place" id="place" />
+      </div>
+      <div class="row">
+        <label for="width">Tanggal Lahir</label>
+        <input type="date" name="date" id="date" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <label for="citizen">Warganegara</label>
+        <input type="text" name="citizen" id="citizen" value="WNI" />
+      </div>
+      <div class="row">
+        <label for="religion">Agama</label>
+        <input type="text" name="religion" id="religion" />
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="row">
+        <label for="work">Pekerjaan</label>
+        <input type="text" name="work" id="work" />
+      </div>
+      <div class="row">
+        <label for="mariage">Status Perkawinan</label>
+        <select name="mariage" id="mariage">
+          <option value="0">BELUM KAWIN</option>
+          <option value="1">KAWIN</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <label for="address">Alamat</label>
+      <textarea name="address" id="address" cols="30" rows="3"></textarea>
+    </div>
+    <div class="row">
+      <label for="purpose">Tujuan Surat</label>
+      <input type="text" name="purpose" id="purpose" />
+    </div>
+
+    <div class="row">
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
+</div>

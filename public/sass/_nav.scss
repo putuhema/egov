@@ -1,0 +1,60 @@
+nav {
+  background-color: $green-500;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $margin-container;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .img {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+      font-weight: bold;
+      position: relative;
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 50%;
+      img {
+        width: 40px;
+        border-radius: 50%;
+        &:hover {
+          outline: 1px solid $green-700;
+        }
+      }
+
+      .info {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 5px;
+        top: 60px;
+        right: 0;
+        opacity: 0.6;
+        font-size: 0.9rem;
+        width: max-content;
+        display: none;
+        .second {
+          color: #999;
+        }
+      }
+
+      .show {
+        display: block;
+      }
+    }
+  }
+}

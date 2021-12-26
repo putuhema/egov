@@ -1,0 +1,22 @@
+.btn {
+  padding: 0.5rem;
+  border: 1px solid $green-300;
+  background-color: $green-50;
+  color: $green-500;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $green-100;
+  }
+}
+
+.box {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid $grey-100;
+  &:hover {
+    background-color: $grey-50;
+  }
+}

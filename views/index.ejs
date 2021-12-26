@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./includes/head.ejs") %>
+  <body>
+    <%- include("./includes/nav.ejs") %>
+    <div class="container">
+      <section class="main">
+        <%- include(`./content/${render}.ejs`, {action: render, filename:
+        filename}) %>
+      </section>
+      <%- include("./includes/footer.ejs") %>
+    </div>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
