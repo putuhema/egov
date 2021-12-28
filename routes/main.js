@@ -8,5 +8,7 @@ router.get("/download", mainController.getDownload);
 router.get("/download-file", mainController.getDownloadFile);
 
 router.post("/skj", mainController.postSKJ);
+router.post("/sktm", mainController.postSKTM);
+router.post("/skd", mainController.postSKD);
 
 module.exports = router;

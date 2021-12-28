@@ -1,8 +1,6 @@
-const PizZip = require("pizzip");
-const Docxtemplater = require("docxtemplater");
-
-const fs = require("fs");
 const path = require("path");
+
+const { DocTemplate } = require("../helper");
 
 exports.getIndex = (_req, res) => {
   res.render("index", {
@@ -14,7 +12,7 @@ exports.getIndex = (_req, res) => {
 exports.getForm = (req, res) => {
   const type = req.query.type;
   let render = "";
-  const EJS = ["skj", "sktm"];
+  const EJS = ["skj", "sktm", "skd"];
   EJS.forEach((e, i) => {
     if (i + 1 == type) {
       render = e;
@@ -60,73 +58,20 @@ exports.postSKJ = (req, res) => {
     const vehicle = req.body.vehicle;
     const description = req.body.description;
 
-    const paths = path.join(__dirname, "..", "public/doc/input/skj.docx");
-    const content = fs.readFileSync(paths, "binary");
-
-    const zip = new PizZip(content);
-
-    const doc = new Docxtemplater(zip, {
-      paragraphLoop: true,
-      linebreaks: true,
-    });
-
-    const date = new Date();
-
-    const months = [
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
-      "September",
-      "Oktober",
-      "November",
-      "Desember",
-    ];
-
-    const roman = [
-      "I",
-      "II",
-      "III",
-      "IV",
-      "V",
-      "VI",
-      "VII",
-      "VIII",
-      "IX",
-      "X",
-      "XI",
-      "XII",
-    ];
-
-    const dateToday = `${date.getDate()} ${
-      months[date.getMonth()]
-    } ${date.getFullYear()}`;
-    doc.render({
-      month: roman[date.getMonth()],
-      year: 2021,
+    const value = {
       nameOfGoods: nameOfGoods,
-      size: `${length} x ${width} x ${height} Cm`,
+      size: `${width} x ${length} x ${height}`,
       amount: amount,
-      type: vehicle,
+      vehicle: vehicle,
       license_plate: plate,
       destination: destination,
       description: description,
-      date: dateToday,
       name: name,
-    });
+    };
 
-    const buf = doc.getZip().generate({ type: "nodebuffer" });
+    DocTemplate("skj", "Surat_Keterangan_Jalan", value);
 
-    fs.writeFileSync(
-      path.join(__dirname, "..", "public/doc/out/skj.docx"),
-      buf
-    );
-
-    res.redirect("/download?filename=skj");
+    res.redirect("/download?filename=Surat_Keterangan_Jalan");
   } catch (err) {
     console.log(err);
   }
@@ -137,14 +82,64 @@ exports.postSKTM = (req, res) => {
     const nik = req.body.nik;
     const name = req.body.name;
     const gender = req.body.gender;
-    const place = req.body.place;
-    const date = req.body.date;
+    const placeOfBirth = req.body.place;
+    const dateOfBirth = req.body.date;
     const citizen = req.body.citizen;
     const religion = req.body.religion;
-    const work = req.body.work;
-    const mariage = req.body.mariage;
+    const job = req.body.work;
+    const marriedStatus = req.body.mariage;
     const address = req.body.address;
     const purpose = req.body.purpose;
+
+    const value = {
+      name,
+      nik,
+      gender,
+      placeOfBirth,
+      dateOfBirth,
+      citizen,
+      religion,
+      job,
+      marriedStatus,
+      address,
+      purpose,
+    };
+
+    DocTemplate("sktm", "Surat_Keterangan_Tidak_Mampu", value);
+
+    res.redirect("/download?filename=Surat_Keterangan_Tidak_Mampu");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.postSKD = (req, res) => {
+  try {
+    const name = req.body.name;
+    const gender = req.body.gender;
+    const placeOfBirth = req.body.place;
+    const dateOfBirth = req.body.date;
+    const citizen = req.body.citizen;
+    const religion = req.body.religion;
+    const job = req.body.work;
+    const marriedStatus = req.body.mariage;
+    const address = req.body.address;
+
+    const value = {
+      name,
+      gender,
+      placeOfBirth,
+      dateOfBirth,
+      citizen,
+      religion,
+      job,
+      marriedStatus,
+      address,
+    };
+
+    DocTemplate("skd", "Surat_Keterangan_Domisili", value);
+
+    res.redirect("/download?filename=Surat_Keterangan_Domisili");
   } catch (err) {
     console.log(err);
   }
