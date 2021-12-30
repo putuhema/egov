@@ -1,0 +1,15 @@
+.download-section 
+  .details 
+    .title Surat Telah Dibuat
+    .logo 
+      img(src='/img/doc.png', alt='doc')
+    p.filename= `${documentName}.docx`
+  .button-container 
+    .back 
+      .popup 
+        p Kembali ke Halaman Utama
+      a#back.link(href='/') 
+        i.bx.bx-left-arrow-alt 
+    .download 
+      a.link(href=`/download-file?filename=${documentName}`) 
+        | Download File

@@ -20,3 +20,33 @@
     background-color: $grey-50;
   }
 }
+
+input,
+select,
+textarea {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+
+  &:focus {
+    outline: 1px solid #dddddd;
+  }
+}
+
+label {
+  font-size: 0.8rem;
+}
+
+fieldset {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+  font-family: $font-family;
+  &:focus {
+    outline: 1px solid $green-700;
+  }
+}

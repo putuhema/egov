@@ -1,0 +1,45 @@
+.input-container 
+  .back-home 
+    a(href='/') 
+      i.bx.bx-left-arrow-alt 
+      | Kembali
+  .row
+    .title Form Surat Keterangan Domisili
+  form(action=`/${render}`, method='post')
+    .col 
+      .row 
+        label(for='name') Nama
+        input#name(type='text', name='name')
+      .row 
+        label(for='gender') Jenis Kelamin
+        select#gender(name='gender') 
+          option(value='Laki - Laki') Laki - Laki
+          option(value='Perempuan') Perempuan
+    .col 
+      .row 
+        label(for='placeOfBirth') Tempat Lahir
+        input#placeOfBirth(type='text', name='placeOfBirth')
+      .row 
+        label(for='dateOfBirth') Tanggal Lahir
+        input#dateOfBirth(type='date', name='dateOfBirth')
+    .col 
+      .row 
+        label(for='citizen') Warganegara
+        input#citizen(type='text', name='citizen', value='WNI')
+      .row 
+        label(for='religion') Agama
+        input#religion(type='text', name='religion')
+    .col 
+      .row 
+        label(for='job') Pekerjaan
+        input#job(type='text', name='job')
+      .row 
+        label(for='marriedStatus') Status Perkawinan
+        select#mariageStatus(name='marriedStatus') 
+          option(value='BELUM KAWIN') BELUM KAWIN
+          option(value='KAWIN') KAWIN
+    .row
+      label(for='address') Alamat
+      textarea#address(name='address', cols='30', rows='3') 
+    .row 
+      button.btn(type='submit') Submit

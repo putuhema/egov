@@ -1,35 +1,36 @@
-const path = require("path");
+const path = require('path');
 
-const { DocTemplate } = require("../helper");
+const { DocTemplate } = require('../helper');
 
 exports.getIndex = (_req, res) => {
-  res.render("index", {
-    render: "main",
-    filename: "",
+  res.render('index', {
+    render: 'main',
+    documentName: '',
   });
 };
 
 exports.getForm = (req, res) => {
-  const type = req.query.type;
-  let render = "";
-  const EJS = ["skj", "sktm", "skd"];
+  const { type } = req.query;
+  let render = '';
+  const EJS = ['skj', 'sktm', 'skd'];
   EJS.forEach((e, i) => {
     if (i + 1 == type) {
       render = e;
     }
   });
-  res.render("index", {
+  res.render('index', {
     render,
-    filename: "",
+    documentName: '',
   });
 };
 
 exports.getDownload = (req, res) => {
   try {
-    const filename = req.query.filename;
-    res.render("index", {
-      render: "download",
-      filename: filename,
+    const { filename } = req.query;
+    console.log(req.query);
+    res.render('index', {
+      render: 'download',
+      documentName: filename,
     });
   } catch (err) {
     console.log(err);
@@ -38,8 +39,8 @@ exports.getDownload = (req, res) => {
 
 exports.getDownloadFile = (req, res) => {
   try {
-    const filename = req.query.filename;
-    res.download(path.join(__dirname, "..", `public/doc/out/${filename}.docx`));
+    const { filename } = req.query;
+    res.download(path.join(__dirname, '..', `public/doc/out/${filename}.docx`));
   } catch (err) {
     console.log(err);
   }
@@ -47,31 +48,31 @@ exports.getDownloadFile = (req, res) => {
 
 exports.postSKJ = (req, res) => {
   try {
-    const name = req.body.name;
-    const plate = req.body.plate;
-    const amount = req.body.amount;
-    const destination = req.body.destination;
-    const length = req.body.lengths;
-    const width = req.body.width;
-    const height = req.body.height;
-    const nameOfGoods = req.body.nameOfGoods;
-    const vehicle = req.body.vehicle;
-    const description = req.body.description;
+    const {
+      name,
+      plate,
+      amount,
+      destination,
+      lengths,
+      width,
+      height,
+      nameOfGoods,
+      vehicleType,
+      description,
+    } = req.body;
 
-    const value = {
+    DocTemplate('skj', 'Surat_Keterangan_Jalan', {
       nameOfGoods: nameOfGoods,
-      size: `${width} x ${length} x ${height}`,
-      amount: amount,
-      vehicle: vehicle,
+      size: `${width} x ${lengths} x ${height}`,
+      amount,
+      vehicle: vehicleType,
       license_plate: plate,
-      destination: destination,
-      description: description,
+      destination,
+      description,
       name: name,
-    };
+    });
 
-    DocTemplate("skj", "Surat_Keterangan_Jalan", value);
-
-    res.redirect("/download?filename=Surat_Keterangan_Jalan");
+    res.redirect('/download?filename=Surat_Keterangan_Jalan');
   } catch (err) {
     console.log(err);
   }
@@ -79,19 +80,21 @@ exports.postSKJ = (req, res) => {
 
 exports.postSKTM = (req, res) => {
   try {
-    const nik = req.body.nik;
-    const name = req.body.name;
-    const gender = req.body.gender;
-    const placeOfBirth = req.body.place;
-    const dateOfBirth = req.body.date;
-    const citizen = req.body.citizen;
-    const religion = req.body.religion;
-    const job = req.body.work;
-    const marriedStatus = req.body.mariage;
-    const address = req.body.address;
-    const purpose = req.body.purpose;
+    const {
+      nik,
+      name,
+      gender,
+      placeOfBirth,
+      dateOfBirth,
+      citizen,
+      religion,
+      job,
+      marriedStatus,
+      address,
+      purpose,
+    } = req.body;
 
-    const value = {
+    DocTemplate('sktm', 'Surat_Keterangan_Tidak_Mampu', {
       name,
       nik,
       gender,
@@ -103,11 +106,9 @@ exports.postSKTM = (req, res) => {
       marriedStatus,
       address,
       purpose,
-    };
+    });
 
-    DocTemplate("sktm", "Surat_Keterangan_Tidak_Mampu", value);
-
-    res.redirect("/download?filename=Surat_Keterangan_Tidak_Mampu");
+    res.redirect('/download?filename=Surat_Keterangan_Tidak_Mampu');
   } catch (err) {
     console.log(err);
   }
@@ -115,17 +116,7 @@ exports.postSKTM = (req, res) => {
 
 exports.postSKD = (req, res) => {
   try {
-    const name = req.body.name;
-    const gender = req.body.gender;
-    const placeOfBirth = req.body.place;
-    const dateOfBirth = req.body.date;
-    const citizen = req.body.citizen;
-    const religion = req.body.religion;
-    const job = req.body.work;
-    const marriedStatus = req.body.mariage;
-    const address = req.body.address;
-
-    const value = {
+    const {
       name,
       gender,
       placeOfBirth,
@@ -135,11 +126,21 @@ exports.postSKD = (req, res) => {
       job,
       marriedStatus,
       address,
-    };
+    } = req.body;
 
-    DocTemplate("skd", "Surat_Keterangan_Domisili", value);
+    DocTemplate('skd', 'Surat_Keterangan_Domisili', {
+      name,
+      gender,
+      placeOfBirth,
+      dateOfBirth,
+      citizen,
+      religion,
+      job,
+      marriedStatus,
+      address,
+    });
 
-    res.redirect("/download?filename=Surat_Keterangan_Domisili");
+    res.redirect('/download?filename=Surat_Keterangan_Domisili');
   } catch (err) {
     console.log(err);
   }

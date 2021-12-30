@@ -1,0 +1,47 @@
+.input-container 
+  .back-home 
+    a(href='/') 
+      i.bx.bx-left-arrow-alt 
+      | Kembali
+  .row
+    .title Form Surat Izin Perjalanan
+  form(action=`/${render}`, method='post')
+    .col 
+      .row 
+        label(for='name') Nama
+        input#name(type='text', name='name')
+      .row 
+        label(for='plate') No Plat
+        input#name(type='text', name='plate')
+    .col 
+      .row 
+        label(for='amount') Jumlah
+        input#amount(type='text', name='amount')
+      .row 
+        label(for='destination') Tempat Tujuan
+        input#destination(type='text', name='destination')
+    .col 
+      fieldset 
+        legend Ukuran Kendaraan
+        .col 
+          .row 
+            label(for='length') Panjang
+            input#lengths(type='text', name='lengths')
+          .row 
+            label(for='width') Lebar
+            input#width(type='text', name='width')
+          .row 
+            label(for='height') Tinggi
+            input#height(type='text', name='height')
+    .col 
+      .row 
+        label(for='nameOfGoods') Nama Barang
+        input#nameOfGoods(type='text', name='nameOfGoods')
+      .row
+        label(for='vehicleType') Jenis Kendaraan
+        input#vehicleType(type='text', name='vehicleType')
+    .row
+      label(for='description') Deskripsi
+      textarea#address(name='description', cols='30', rows='3') 
+    .row 
+      button.btn(type='submit') Submit

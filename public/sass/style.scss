@@ -1,14 +1,24 @@
-@import "./variable";
-@import "./config";
-@import "./general";
-@import "./nav";
-@import "./main";
-@import "./footer";
+@import './variable';
+@import './config';
+@import './general';
+@import './nav';
+@import './main';
+@import './footer';
 
 @media screen and (max-width: 850px) {
   .right {
     span {
       display: none;
+    }
+  }
+
+  .info {
+    .row {
+      flex-direction: column;
+      align-items: flex-start !important;
+      select {
+        width: 100%;
+      }
     }
   }
 }
@@ -19,13 +29,9 @@
     margin: 10px 50px;
   }
 
-  .col {
-    flex-direction: column;
-  }
-
   .banner {
     flex-direction: column;
-    width: 400px;
+    width: max-content;
   }
 
   .footer-container {
@@ -36,7 +42,46 @@
     .right {
       width: 100%;
       justify-content: space-between !important;
-      column-gap: 0;
+      gap: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    margin: 0 1rem;
+  }
+
+  .col {
+    flex-direction: column;
+  }
+
+  .img {
+    p {
+      text-align: center !important;
+    }
+  }
+
+  .box {
+    width: 280px;
+
+    img {
+      width: 200px !important;
+    }
+  }
+
+  .banner {
+    margin: 2rem;
+  }
+
+  .nav-container {
+    padding: 5px 20px !important;
+  }
+
+  .input-container {
+    flex: 1;
+    .title {
+      font-size: 0.9rem !important;
     }
   }
 }

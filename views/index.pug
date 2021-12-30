@@ -1,0 +1,19 @@
+html(lang='en')
+  include ./includes/head.pug
+  body
+    include ./includes/nav.pug
+    .container 
+      section.main 
+        case render
+          when "main"
+            include ./content/main.pug
+          when "skd"
+            include ./content/skd.pug
+          when "skj"
+            include ./content/skj.pug
+          when "sktm"
+            include ./content/sktm.pug
+          when "download"
+            include ./content/download.pug
+      include ./includes/footer.pug
+    script(src='/js/app.js') 

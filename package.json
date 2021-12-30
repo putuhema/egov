@@ -17,9 +17,14 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "pizzip": "^3.1.1",
+    "pug": "^3.0.2",
     "sequelize": "^7.0.0-alpha.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "@prettier/plugin-pug": "^1.19.0",
+    "eslint": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
   }
 }

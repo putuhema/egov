@@ -1,0 +1,18 @@
+.banner
+  .box.img
+    img(src='/img/mamuju.png', alt='mamuju')
+    p Desa Tommo, Kecamatan Tommo
+    p Mamuju
+    p Sulawesi Barat
+  .box.info 
+    p.
+      <strong>BikinSurat</strong> adalah layanan E-Goverment yang bertujuan
+      untuk Pembuatan Surat agar mempercepat proses administrasi antara
+      pemerintah desa dengan masyarakat.
+    .row 
+      label(for='option') JENIS SURAT
+      select#option(name='option') 
+        option(value='1') Surat Izin Perjalanan
+        option(value='2') Surat Keterangan Tidak Mampu
+        option(value='3') Surat Keterangan Domisili
+    a#main-link.btn(href='/input?type=1') Masukkan Data
