@@ -27,7 +27,6 @@ exports.getForm = (req, res) => {
 exports.getDownload = (req, res) => {
   try {
     const { filename } = req.query;
-    console.log(req.query);
     res.render('index', {
       render: 'download',
       documentName: filename,

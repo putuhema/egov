@@ -15,8 +15,8 @@
         input#name(type='text', name='plate')
     .col 
       .row 
-        label(for='amount') Jumlah
-        input#amount(type='text', name='amount')
+        label(for='amount') Jumlah (m3)
+        input#amount(type='text', name='amount', placeholder='contoh : 300')
       .row 
         label(for='destination') Tempat Tujuan
         input#destination(type='text', name='destination')
@@ -25,13 +25,13 @@
         legend Ukuran Kendaraan
         .col 
           .row 
-            label(for='length') Panjang
+            label(for='length') Panjang (cm)
             input#lengths(type='text', name='lengths')
           .row 
-            label(for='width') Lebar
+            label(for='width') Lebar (cm)
             input#width(type='text', name='width')
           .row 
-            label(for='height') Tinggi
+            label(for='height') Tinggi (cm)
             input#height(type='text', name='height')
     .col 
       .row 

@@ -47,6 +47,6 @@ textarea {
   resize: none;
   font-family: $font-family;
   &:focus {
-    outline: 1px solid $green-700;
+    outline: 1px solid #ddd;
   }
 }

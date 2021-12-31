@@ -65,7 +65,7 @@ textarea {
 }
 
 textarea:focus {
-  outline: 1px solid #388e3c;
+  outline: 1px solid #ddd;
 }
 
 nav {
