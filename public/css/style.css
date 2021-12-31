@@ -535,6 +535,12 @@ footer .footer-container .right .link:hover {
   .container {
     margin: 0 1rem;
   }
+  .download {
+    padding: 0.5rem 2rem !important;
+  }
+  .download a {
+    font-size: 1rem !important;
+  }
   .col {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
